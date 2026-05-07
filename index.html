@@ -12,24 +12,23 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --magenta: #A0195A;
-    --magenta-dark: #7A1244;
-    --magenta-light: #F5E0EC;
-    --magenta-mid: #C4337A;
+    --primary: #1A4FA0;
+    --primary-dark: #0F3578;
+    --primary-light: #E6EEFF;
+    --primary-mid: #2E66C4;
     --gold: #B07A18;
     --gold-light: #FBF0D8;
     --green: #1E7A4A;
     --green-light: #E6F5EE;
     --teal: #0D7A7A;
     --teal-light: #E0F5F5;
-    --blue: #1A4FA0;
-    --blue-light: #E6EEFF;
-    --bg: #F8F7F4;
+
+    --bg: #F6F8FC;
     --surface: #FFFFFF;
     --text: #1A1A1A;
     --text-muted: #6B6B68;
     --text-light: #9A9A96;
-    --border: #E5E4DF;
+    --border: #E2E6EF;
     --radius: 14px;
     --radius-sm: 8px;
   }
@@ -63,7 +62,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.35rem;
     font-weight: 900;
-    color: var(--magenta);
+    color: var(--primary);
     letter-spacing: -0.02em;
     text-decoration: none;
   }
@@ -85,9 +84,9 @@
     letter-spacing: 0.01em;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--magenta); }
+  .nav-links a:hover { color: var(--primary); }
   .nav-cta {
-    background: var(--magenta) !important;
+    background: var(--primary) !important;
     color: white !important;
     padding: 0.5rem 1.25rem;
     border-radius: 50px;
@@ -95,7 +94,7 @@
     font-size: 0.875rem !important;
     transition: background 0.2s !important;
   }
-  .nav-cta:hover { background: var(--magenta-dark) !important; }
+  .nav-cta:hover { background: var(--primary-dark) !important; }
   .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
   .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
 
@@ -117,8 +116,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--magenta-light);
-    color: var(--magenta);
+    background: var(--primary-light);
+    color: var(--primary);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -142,7 +141,7 @@
   }
   .hero-title em {
     font-style: italic;
-    color: var(--magenta);
+    color: var(--primary);
   }
   .hero-subtitle {
     font-size: 1.1rem;
@@ -160,7 +159,7 @@
     animation: fadeUp 0.6s ease 0.3s both;
   }
   .btn-primary {
-    background: var(--magenta);
+    background: var(--primary);
     color: white;
     padding: 0.875rem 2rem;
     border-radius: 50px;
@@ -172,7 +171,7 @@
     align-items: center;
     gap: 0.5rem;
   }
-  .btn-primary:hover { background: var(--magenta-dark); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
   .btn-secondary {
     background: transparent;
     color: var(--text);
@@ -187,7 +186,7 @@
     align-items: center;
     gap: 0.5rem;
   }
-  .btn-secondary:hover { border-color: var(--magenta); color: var(--magenta); }
+  .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
   .hero-stats {
     display: flex;
     gap: 2rem;
@@ -200,7 +199,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--magenta);
+    color: var(--primary);
     line-height: 1;
   }
   .stat-item .lbl {
@@ -212,7 +211,7 @@
     letter-spacing: 0.05em;
   }
   .hero-right {
-    background: var(--magenta-light);
+    background: var(--primary-light);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -228,7 +227,7 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(8rem, 15vw, 14rem);
     font-weight: 900;
-    color: var(--magenta);
+    color: var(--primary);
     opacity: 0.12;
     line-height: 1;
     position: absolute;
@@ -243,7 +242,7 @@
     border-radius: 20px;
     padding: 2rem;
     max-width: 340px;
-    box-shadow: 0 20px 60px rgba(160,25,90,0.15);
+    box-shadow: 0 20px 60px rgba(26,79,160,0.15);
     position: relative;
     z-index: 1;
     text-align: left;
@@ -284,7 +283,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--magenta);
+    color: var(--primary);
   }
   .hero-card .price-label {
     font-size: 0.75rem;
@@ -292,7 +291,7 @@
   }
   .hero-card .enroll-btn {
     display: block;
-    background: var(--magenta);
+    background: var(--primary);
     color: white;
     text-align: center;
     padding: 0.7rem;
@@ -303,7 +302,7 @@
     margin-top: 1rem;
     transition: background 0.2s;
   }
-  .hero-card .enroll-btn:hover { background: var(--magenta-dark); }
+  .hero-card .enroll-btn:hover { background: var(--primary-dark); }
   .floating-tags {
     position: absolute;
     z-index: 2;
@@ -322,7 +321,7 @@
     align-items: center;
     gap: 0.4rem;
   }
-  .float-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--magenta); }
+  .float-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
   .float-pill .dot.green { background: #2E9B5A; }
 
   /* ── OBJETIVO ── */
@@ -336,7 +335,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--magenta);
+    color: var(--primary);
     margin-bottom: 1rem;
   }
   .section-title {
@@ -348,7 +347,7 @@
     line-height: 1.1;
     margin-bottom: 1.5rem;
   }
-  .section-title em { font-style: italic; color: var(--magenta); }
+  .section-title em { font-style: italic; color: var(--primary); }
   .objetivo p {
     font-size: 1.1rem;
     color: var(--text-muted);
@@ -372,10 +371,10 @@
     border: 1px solid var(--border);
     transition: border-color 0.2s, transform 0.2s;
   }
-  .pillar:hover { border-color: var(--magenta); transform: translateY(-2px); }
+  .pillar:hover { border-color: var(--primary); transform: translateY(-2px); }
   .pillar-icon {
     width: 44px; height: 44px;
-    background: var(--magenta-light);
+    background: var(--primary-light);
     border-radius: var(--radius-sm);
     display: flex; align-items: center; justify-content: center;
     font-size: 1.2rem;
@@ -422,7 +421,7 @@
     flex-direction: column;
   }
   .curso-card:hover {
-    box-shadow: 0 12px 40px rgba(160,25,90,0.12);
+    box-shadow: 0 12px 40px rgba(26,79,160,0.12);
     transform: translateY(-3px);
   }
   .curso-img {
@@ -445,7 +444,7 @@
   }
   .tag-amb { background: var(--green-light); color: var(--green); }
   .tag-agro { background: var(--gold-light); color: var(--gold); }
-  .tag-dis { background: var(--blue-light); color: var(--blue); }
+  .tag-dis { background: var(--primary-light); color: var(--primary); }
   .tag-sal { background: var(--teal-light); color: var(--teal); }
   .tag-ener { background: var(--gold-light); color: var(--gold); }
   .curso-title {
@@ -475,7 +474,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--magenta);
+    color: var(--primary);
   }
   .curso-price span {
     font-size: 0.75rem;
@@ -484,7 +483,7 @@
     color: var(--text-light);
   }
   .btn-curso {
-    background: var(--magenta);
+    background: var(--primary);
     color: white;
     padding: 0.5rem 1.25rem;
     border-radius: 50px;
@@ -494,7 +493,7 @@
     transition: background 0.2s;
     white-space: nowrap;
   }
-  .btn-curso:hover { background: var(--magenta-dark); }
+  .btn-curso:hover { background: var(--primary-dark); }
 
   /* ── QUIÉNES SOMOS ── */
   .quienes {
@@ -524,16 +523,16 @@
     border: 1px solid var(--border);
     transition: border-color 0.2s;
   }
-  .equipo-card:hover { border-color: var(--magenta); }
+  .equipo-card:hover { border-color: var(--primary); }
   .equipo-avatar {
     width: 48px; height: 48px;
     border-radius: 50%;
-    background: var(--magenta-light);
+    background: var(--primary-light);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--magenta);
+    color: var(--primary);
     margin-bottom: 0.75rem;
   }
   .equipo-card h4 {
@@ -552,14 +551,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: var(--magenta);
+    color: var(--primary);
     margin-bottom: 0.25rem;
   }
 
   /* ── TESTIMONIOS ── */
   .testimonios {
     padding: 6rem 5vw;
-    background: var(--magenta);
+    background: #0D2A5E;
     color: white;
     overflow: hidden;
     position: relative;
@@ -658,12 +657,12 @@
     font-size: 0.9rem;
     color: var(--text-muted);
   }
-  .contact-detail a { color: var(--magenta); text-decoration: none; }
+  .contact-detail a { color: var(--primary); text-decoration: none; }
   .contact-detail a:hover { text-decoration: underline; }
   .contact-icon {
     width: 36px; height: 36px;
     border-radius: var(--radius-sm);
-    background: var(--magenta-light);
+    background: var(--primary-light);
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem;
     flex-shrink: 0;
@@ -707,11 +706,11 @@
   }
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--magenta); }
+  .form-group textarea:focus { border-color: var(--primary); }
   .form-group textarea { resize: vertical; min-height: 100px; }
   .form-submit {
     width: 100%;
-    background: var(--magenta);
+    background: var(--primary);
     color: white;
     padding: 0.9rem;
     border-radius: 50px;
@@ -723,7 +722,7 @@
     transition: background 0.2s;
     margin-top: 0.5rem;
   }
-  .form-submit:hover { background: var(--magenta-dark); }
+  .form-submit:hover { background: var(--primary-dark); }
 
   /* ── FOOTER ── */
   footer {
@@ -889,10 +888,6 @@
       <span class="tag">Más inscriptos</span>
       <h3>Introducción a la evaluación de impacto ambiental I</h3>
       <p>Dominá la normativa y las herramientas que el mercado laboral exige.</p>
-      <div class="price">
-        <span class="price-num">$12.000</span>
-        <span class="price-label">ARS · pago único</span>
-      </div>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="enroll-btn">Inscribirme ahora</a>
     </div>
     <div class="floating-tags ft-2">
@@ -945,7 +940,7 @@
         <h3 class="curso-title">Introducción a la evaluación de impacto ambiental I</h3>
         <p class="curso-desc">Aprendé a evaluar proyectos de inversión como un profesional. Dominá la normativa y las herramientas que el mercado laboral exige.</p>
         <div class="curso-footer">
-          <div class="curso-price">Consultá <span>precio</span></div>
+          
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
         </div>
       </div>
@@ -958,7 +953,7 @@
         <h3 class="curso-title">Introducción a la evaluación de impacto ambiental II</h3>
         <p class="curso-desc">Elaborá informes ambientales que cumplan la normativa vigente y abrí nuevas oportunidades profesionales.</p>
         <div class="curso-footer">
-          <div class="curso-price">Consultá <span>precio</span></div>
+          
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
         </div>
       </div>
@@ -971,7 +966,7 @@
         <h3 class="curso-title">Organización de Feed Lot Sustentable</h3>
         <p class="curso-desc">Llevá tu hacienda al siguiente nivel. Optimizá costos, mejorá la nutrición y gestioná tus corrales con criterio técnico y rentabilidad real.</p>
         <div class="curso-footer">
-          <div class="curso-price">Consultá <span>precio</span></div>
+          
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
         </div>
       </div>
@@ -984,7 +979,7 @@
         <h3 class="curso-title">Diseño 3D para la industria</h3>
         <p class="curso-desc">Convertí tus ideas en modelos 3D profesionales. Dominá SketchUp aplicado a equipos, instalaciones y plantas de proceso con precisión técnica.</p>
         <div class="curso-footer">
-          <div class="curso-price">Consultá <span>precio</span></div>
+          
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
         </div>
       </div>
@@ -997,7 +992,7 @@
         <h3 class="curso-title">Curso de Biodiesel</h3>
         <p class="curso-desc">Producí tu propio combustible. Conocé el proceso completo del biodiesel, desde la materia prima hasta la escala industrial, con foco en rentabilidad.</p>
         <div class="curso-footer">
-          <div class="curso-price">Consultá <span>precio</span></div>
+          
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
         </div>
       </div>
@@ -1010,7 +1005,7 @@
         <h3 class="curso-title">Salud y ambiente</h3>
         <p class="curso-desc">Entendé cómo el ambiente impacta en la salud y convertite en referente en prevención y gestión de riesgos sanitarios en tu comunidad.</p>
         <div class="curso-footer">
-          <div class="curso-price">Consultá <span>precio</span></div>
+          
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
         </div>
       </div>
@@ -1047,9 +1042,9 @@
       <h4>Mg. Ing. Luis Morales</h4>
       <p>Ingeniero en alimentos, MBA y Magíster en Ambiente y Desarrollo Sustentable.</p>
     </div>
-    <div class="equipo-card" style="background: var(--magenta-light); border-color: var(--magenta);">
+    <div class="equipo-card" style="background: var(--primary-light); border-color: var(--primary);">
       <div class="equipo-avatar" style="background: white;">+</div>
-      <div class="role" style="color:var(--magenta)">Próximamente</div>
+      <div class="role" style="color:var(--primary)">Próximamente</div>
       <h4>Nuevos docentes</h4>
       <p>Incorporamos especialistas continuamente. Escribinos si querés sumarte al equipo.</p>
     </div>
@@ -1117,11 +1112,11 @@
       <div class="contact-icon">🌐</div>
       <span>academiaopm.ar</span>
     </div>
-    <div style="margin-top:2rem; padding: 1.5rem; background: var(--magenta-light); border-radius: var(--radius); border-left: 4px solid var(--magenta);">
-      <p style="font-size:0.85rem; color:var(--magenta-dark); font-weight:500; line-height:1.6; margin-bottom:0.75rem;">
+    <div style="margin-top:2rem; padding: 1.5rem; background: var(--primary-light); border-radius: var(--radius); border-left: 4px solid var(--primary);">
+      <p style="font-size:0.85rem; color:var(--primary-dark); font-weight:500; line-height:1.6; margin-bottom:0.75rem;">
         💳 Aceptamos pago por <strong>Mercado Pago</strong>: tarjeta de crédito, débito y transferencia. Recibís acceso inmediato al inscribirte.
       </p>
-      <a href="https://infoacademiaopm-cpu.github.io/academia-opm/" target="_blank" style="font-size:0.85rem; color:var(--magenta); font-weight:600; text-decoration:none;">→ Acceder a la plataforma de cursos</a>
+      <a href="https://infoacademiaopm-cpu.github.io/academia-opm/" target="_blank" style="font-size:0.85rem; color:var(--primary); font-weight:600; text-decoration:none;">→ Acceder a la plataforma de cursos</a>
     </div>
   </div>
   <div class="form-card">
