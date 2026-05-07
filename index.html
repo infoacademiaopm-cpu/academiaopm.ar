@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia OPM – Formación profesional de calidad</title>
+<meta name="description" content="Formación profesional práctica en medio ambiente, producción agropecuaria y diseño. Cursos desarrollados por especialistas con experiencia real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --magenta: #A0195A;
+    --magenta-dark: #7A1244;
+    --magenta-light: #F5E0EC;
+    --magenta-mid: #C4337A;
+    --gold: #B07A18;
+    --gold-light: #FBF0D8;
+    --green: #1E7A4A;
+    --green-light: #E6F5EE;
+    --teal: #0D7A7A;
+    --teal-light: #E0F5F5;
+    --blue: #1A4FA0;
+    --blue-light: #E6EEFF;
+    --bg: #F8F7F4;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --text-muted: #6B6B68;
+    --text-light: #9A9A96;
+    --border: #E5E4DF;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: var(--magenta);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span {
+    color: var(--text);
+    font-style: italic;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--magenta); }
+  .nav-cta {
+    background: var(--magenta) !important;
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--magenta-dark) !important; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 5vw;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--magenta-light);
+    color: var(--magenta);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    width: fit-content;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: "●"; font-size: 0.5rem; }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+  .btn-primary {
+    background: var(--magenta);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--magenta-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--magenta); color: var(--magenta); }
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+  .stat-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--magenta);
+    line-height: 1;
+  }
+  .stat-item .lbl {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .hero-right {
+    background: var(--magenta-light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-right-inner {
+    padding: 4rem 3rem;
+    text-align: center;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-right-inner .big-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(8rem, 15vw, 14rem);
+    font-weight: 900;
+    color: var(--magenta);
+    opacity: 0.12;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 340px;
+    box-shadow: 0 20px 60px rgba(160,25,90,0.15);
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-card .tag {
+    background: var(--gold-light);
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .hero-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .hero-card .price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+  .hero-card .price-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--magenta);
+  }
+  .hero-card .price-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+  .hero-card .enroll-btn {
+    display: block;
+    background: var(--magenta);
+    color: white;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background 0.2s;
+  }
+  .hero-card .enroll-btn:hover { background: var(--magenta-dark); }
+  .floating-tags {
+    position: absolute;
+    z-index: 2;
+  }
+  .ft-1 { top: 15%; left: 8%; }
+  .ft-2 { bottom: 20%; right: 8%; }
+  .float-pill {
+    background: white;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .float-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--magenta); }
+  .float-pill .dot.green { background: #2E9B5A; }
+
+  /* ── OBJETIVO ── */
+  .objetivo {
+    padding: 6rem 5vw;
+    background: var(--surface);
+    text-align: center;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--magenta);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--magenta); }
+  .objetivo p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 3rem auto 0;
+  }
+  .pillar {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    text-align: left;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .pillar:hover { border-color: var(--magenta); transform: translateY(-2px); }
+  .pillar-icon {
+    width: 44px; height: 44px;
+    background: var(--magenta-light);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .pillar h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .pillar p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── CURSOS ── */
+  .cursos {
+    padding: 6rem 5vw;
+    background: var(--bg);
+  }
+  .cursos-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .curso-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.3s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .curso-card:hover {
+    box-shadow: 0 12px 40px rgba(160,25,90,0.12);
+    transform: translateY(-3px);
+  }
+  .curso-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: var(--bg);
+    display: block;
+  }
+  .curso-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .curso-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    width: fit-content;
+    margin-bottom: 0.75rem;
+  }
+  .tag-amb { background: var(--green-light); color: var(--green); }
+  .tag-agro { background: var(--gold-light); color: var(--gold); }
+  .tag-dis { background: var(--blue-light); color: var(--blue); }
+  .tag-sal { background: var(--teal-light); color: var(--teal); }
+  .tag-ener { background: var(--gold-light); color: var(--gold); }
+  .curso-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+  }
+  .curso-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+  .curso-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+  .curso-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--magenta);
+  }
+  .curso-price span {
+    font-size: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--text-light);
+  }
+  .btn-curso {
+    background: var(--magenta);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-curso:hover { background: var(--magenta-dark); }
+
+  /* ── QUIÉNES SOMOS ── */
+  .quienes {
+    padding: 6rem 5vw;
+    background: var(--surface);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .quienes-text .section-title { text-align: left; }
+  .quienes-text p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .equipo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .equipo-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .equipo-card:hover { border-color: var(--magenta); }
+  .equipo-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--magenta-light);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--magenta);
+    margin-bottom: 0.75rem;
+  }
+  .equipo-card h4 {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .equipo-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .equipo-card .role {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--magenta);
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── TESTIMONIOS ── */
+  .testimonios {
+    padding: 6rem 5vw;
+    background: var(--magenta);
+    color: white;
+    overflow: hidden;
+    position: relative;
+  }
+  .testimonios::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 24rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    position: absolute;
+    top: -4rem;
+    left: -2rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .testimonios .section-label { color: rgba(255,255,255,0.6); }
+  .testimonios .section-title { color: white; }
+  .testimonios .section-title em { color: rgba(255,255,255,0.7); }
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+  .testi-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+  }
+  .testi-card:hover { background: rgba(255,255,255,0.15); }
+  .testi-stars {
+    color: #F7C948;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+  .testi-text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.9);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .testi-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  .testi-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: white;
+  }
+  .testi-loc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ── CONTACTO ── */
+  .contacto {
+    padding: 6rem 5vw;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contacto-info .section-title { text-align: left; margin-bottom: 1rem; }
+  .contacto-info > p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .contact-detail a { color: var(--magenta); text-decoration: none; }
+  .contact-detail a:hover { text-decoration: underline; }
+  .contact-icon {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-sm);
+    background: var(--magenta-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .form-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  }
+  .form-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--magenta); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%;
+    background: var(--magenta);
+    color: white;
+    padding: 0.9rem;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--magenta-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    color: white;
+    padding: 4rem 5vw 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand .nav-logo { color: #E2A0C5; font-size: 1.5rem; }
+  .footer-brand .nav-logo span { color: white; }
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-top: 0.75rem;
+    max-width: 280px;
+  }
+  .footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-bottom p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-bottom a:hover { color: white; }
+
+  /* ── WHATSAPP ── */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 200;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: pulse-wa 3s ease infinite;
+  }
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    animation: none;
+  }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: white; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 1.5rem 3rem; }
+    .hero-right { min-height: 380px; }
+    .quienes { grid-template-columns: 1fr; gap: 2rem; }
+    .testimonios-grid { grid-template-columns: 1fr; }
+    .contacto { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .pillars { grid-template-columns: 1fr; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 1.5rem; gap: 1rem; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    .cursos-header { flex-direction: column; align-items: flex-start; }
+    .hero-stats { flex-wrap: wrap; gap: 1.25rem; }
+    .equipo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Academia <span>OPM</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#cursos">Cursos</a></li>
+    <li><a href="#quienes">Quiénes somos</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="https://infoacademiaopm-cpu.github.io/academia-opm/" target="_blank">Plataforma →</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="nav-cta">Inscribirme</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Formación 100% online · Argentina</div>
+    <h1 class="hero-title">
+      Aprendé de quienes<br>
+      lo <em>hacen</em> de verdad.
+    </h1>
+    <p class="hero-subtitle">
+      Cursos de medio ambiente, producción agropecuaria y diseño industrial desarrollados por especialistas con experiencia real en el campo.
+    </p>
+    <div class="hero-actions">
+      <a href="#cursos" class="btn-primary">Ver cursos →</a>
+      <a href="https://infoacademiaopm-cpu.github.io/academia-opm/" target="_blank" class="btn-secondary">Acceder a la plataforma</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="num">6+</div>
+        <div class="lbl">Cursos activos</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">100%</div>
+        <div class="lbl">Online</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">3</div>
+        <div class="lbl">Áreas temáticas</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="big-letter">O</div>
+    <div class="floating-tags ft-1">
+      <div class="float-pill"><span class="dot green"></span> Especialistas reales</div>
+    </div>
+    <div class="hero-card">
+      <span class="tag">Más inscriptos</span>
+      <h3>Introducción a la evaluación de impacto ambiental I</h3>
+      <p>Dominá la normativa y las herramientas que el mercado laboral exige.</p>
+      <div class="price">
+        <span class="price-num">$12.000</span>
+        <span class="price-label">ARS · pago único</span>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="enroll-btn">Inscribirme ahora</a>
+    </div>
+    <div class="floating-tags ft-2">
+      <div class="float-pill"><span class="dot"></span> Certificado incluido</div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJETIVO -->
+<section class="objetivo">
+  <p class="section-label">Nuestra misión</p>
+  <h2 class="section-title">Conocimiento técnico<br>al alcance de <em>todos</em></h2>
+  <p>
+    Academia OPM nace para acortar la distancia entre el saber técnico especializado y quienes lo necesitan. Formación práctica y accesible en áreas de medio ambiente, producción agropecuaria y diseño.
+  </p>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">🌿</div>
+      <h4>Medio ambiente</h4>
+      <p>Evaluación de impacto, normativa vigente y gestión ambiental empresarial.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌾</div>
+      <h4>Producción agropecuaria</h4>
+      <p>Feed lot sustentable, biodiesel y tecnologías aplicadas al campo.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">📐</div>
+      <h4>Diseño industrial</h4>
+      <p>SketchUp aplicado a industria, instalaciones y plantas de proceso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section class="cursos" id="cursos">
+  <div class="cursos-header">
+    <div>
+      <p class="section-label">Oferta académica</p>
+      <h2 class="section-title">Nuestros <em>cursos</em></h2>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-secondary">Ver todas las inscripciones</a>
+  </div>
+  <div class="cursos-grid">
+
+    <div class="curso-card">
+      <img class="curso-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUBj2zbCUPUGAx1vzJxGEmVw6e01icnv8BDJY53E9XsH-_0d259MlghzxU9ff0tvFmCBig6tiTO5mj3TIfgtkrqZKUjYNVMv5x420Z1Wnr-dl1l1XRET8Zl9yPdCGEFNFJav2saZPN6LUJwN-FZTvMz2S_W6qd7jtcYaK3zJC8cLWrhkiqsAbVY37lYz8LI7JpQFEpTasTZeCSP7ucgRxy7Ue7puDikJ3GNfGsc=w1280" alt="Evaluación de impacto ambiental I">
+      <div class="curso-body">
+        <span class="curso-tag tag-amb">Ambiental</span>
+        <h3 class="curso-title">Introducción a la evaluación de impacto ambiental I</h3>
+        <p class="curso-desc">Aprendé a evaluar proyectos de inversión como un profesional. Dominá la normativa y las herramientas que el mercado laboral exige.</p>
+        <div class="curso-footer">
+          <div class="curso-price">Consultá <span>precio</span></div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <img class="curso-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUCyAGxPznmYc9V90Fus7CpTNMHgQr4XJ_HEvh-Ycw2wSeqSbb70Q1hqVVxKFbUFR5POVi-QHoxAVM9_8LwSoAl_-Jd1vELU_mwpUSA9ZOJBplTMJol7gD-B74LBrlwcyM41swv3Idwiw0WOrCGdARdm-2VJb6owUkoLVW04-JZDhPOdldjCnVYX6YyOYfuzQt0_XtBX3GddKvpGFbbr-KHSXx89bLrg25O04wc=w1280" alt="Evaluación de impacto ambiental II">
+      <div class="curso-body">
+        <span class="curso-tag tag-amb">Ambiental</span>
+        <h3 class="curso-title">Introducción a la evaluación de impacto ambiental II</h3>
+        <p class="curso-desc">Elaborá informes ambientales que cumplan la normativa vigente y abrí nuevas oportunidades profesionales.</p>
+        <div class="curso-footer">
+          <div class="curso-price">Consultá <span>precio</span></div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <img class="curso-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUCBI_H9DxoeuIO4TnI5-rKTHsHbHnrYr4o11K7hPG9Cc6nqL3rQe-AWSvIJ-aNnfrQkIhjKd9Y4ZV-v4s8y7hdbOWLDJ8bgefP0esOqnJ9bNkAQJ2e4deWawq6feyqNqNSf7gK1v5WfIYQBMxC8bcH51HMPWJSo9nGe0peHWFa67q9_qEm1jBdHkIxgfBi8jRwjJuoNuga1CwL_jsvhpZ_lKYNswO8WGvQXIcQ=w1280" alt="Organización de Feed Lot Sustentable">
+      <div class="curso-body">
+        <span class="curso-tag tag-agro">Agropecuario</span>
+        <h3 class="curso-title">Organización de Feed Lot Sustentable</h3>
+        <p class="curso-desc">Llevá tu hacienda al siguiente nivel. Optimizá costos, mejorá la nutrición y gestioná tus corrales con criterio técnico y rentabilidad real.</p>
+        <div class="curso-footer">
+          <div class="curso-price">Consultá <span>precio</span></div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <img class="curso-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUCnfVCBVErFh36fRRuSSrC7K5wGTTHaSb688AuOiL4YOa03ZQJuLurfKQ-MnwwpSOd3Gzw0uZlQIMgj8OSb-DLUoWKfr6i2afI7P9uWfoWhJdcvJ0iz9EIw9bHSBmVVTRSQ9-Ojd-wl2ZRIeVUJF6vrydaZ967PLTQsxpH4gDQKWr78lOCPu7clmnfeVn3r40GcjrCMhst5vG1_dC7IkHZi-YLRhYIjPDzSvQE=w1280" alt="Diseño 3D para la industria">
+      <div class="curso-body">
+        <span class="curso-tag tag-dis">Diseño</span>
+        <h3 class="curso-title">Diseño 3D para la industria</h3>
+        <p class="curso-desc">Convertí tus ideas en modelos 3D profesionales. Dominá SketchUp aplicado a equipos, instalaciones y plantas de proceso con precisión técnica.</p>
+        <div class="curso-footer">
+          <div class="curso-price">Consultá <span>precio</span></div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <img class="curso-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUCZsjPaNe2yvPH8AFF_y767hNuyDyfb7zYGDsawfPS5baA1ObXzsTfX_NleaKVGTCuT6P8YXR6-TqhhWRd7FwQQrFfq0FIWM_jm9In3jKnrS6EH3-lSaPAJNvt3VOsjU2gjlxrYTuz1gUbSVhTTCAeMH8GzBuowS64x2WEpnhQrupU0WUb1f8EJuvjk0H43bK24rtcwWR8a4878BV9Brcivj-KJfPI4BIVSO0A=w1280" alt="Curso de Biodiesel">
+      <div class="curso-body">
+        <span class="curso-tag tag-ener">Energía</span>
+        <h3 class="curso-title">Curso de Biodiesel</h3>
+        <p class="curso-desc">Producí tu propio combustible. Conocé el proceso completo del biodiesel, desde la materia prima hasta la escala industrial, con foco en rentabilidad.</p>
+        <div class="curso-footer">
+          <div class="curso-price">Consultá <span>precio</span></div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <img class="curso-img" src="https://lh3.googleusercontent.com/sitesv/AA5AbUC7B-E3M_RUjQjd9qv0fQ5kv3lvK49DvYHNdrXUbCZVj_BDx6o5E21UVohv3In96Xv3VSsiAv97ikZxi5GL5uJTwwPHWv3vcfhTqVWScHyWv3i7LMPAfiz7CkNStcsMY1_FxYWRYV2GkdIf04fdcrfIeONCMlXzsGtypB1-q83f_QYBHjVB3lN3gPWf8BHz_cEb-gxhPFg38wLWF_r_fLWCDj1qzLKWT3KxFVk=w1280" alt="Salud y ambiente">
+      <div class="curso-body">
+        <span class="curso-tag tag-sal">Salud</span>
+        <h3 class="curso-title">Salud y ambiente</h3>
+        <p class="curso-desc">Entendé cómo el ambiente impacta en la salud y convertite en referente en prevención y gestión de riesgos sanitarios en tu comunidad.</p>
+        <div class="curso-footer">
+          <div class="curso-price">Consultá <span>precio</span></div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-curso">Inscribirme</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="quienes" id="quienes">
+  <div class="quienes-text">
+    <p class="section-label">El equipo</p>
+    <h2 class="section-title">Especialistas que<br><em>trabajan</em> en el campo</h2>
+    <p>Academia OPM es un proyecto de profesionales que combinan trayectoria académica y experiencia real en la industria. No enseñamos desde los libros: enseñamos desde lo que hacemos todos los días.</p>
+    <p>Cada curso está desarrollado por expertos con años de trabajo efectivo en sus áreas — garantizando que lo que aprendés tiene aplicación inmediata.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXxRICYKU6P6IsyQWy0tnryTuDNzwn0TwuS6LJeIJ1ShNMeg/viewform" target="_blank" class="btn-primary" style="margin-top:0.5rem; display:inline-flex;">Inscribirme a un curso →</a>
+  </div>
+  <div class="equipo-grid">
+    <div class="equipo-card">
+      <div class="equipo-avatar">GO</div>
+      <div class="role">Docente</div>
+      <h4>Ing. Gloria Osiscka</h4>
+      <p>Ingeniera agroindustrial. Experta en energías renovables y producción sustentable.</p>
+    </div>
+    <div class="equipo-card">
+      <div class="equipo-avatar">LP</div>
+      <div class="role">Docente</div>
+      <h4>Mg. Prof. Luciana Ponce Laso</h4>
+      <p>Magíster. Experta en salud y educación. Docente con trayectoria en gestión comunitaria.</p>
+    </div>
+    <div class="equipo-card">
+      <div class="equipo-avatar">LM</div>
+      <div class="role">Coordinación académica</div>
+      <h4>Mg. Ing. Luis Morales</h4>
+      <p>Ingeniero en alimentos, MBA y Magíster en Ambiente y Desarrollo Sustentable.</p>
+    </div>
+    <div class="equipo-card" style="background: var(--magenta-light); border-color: var(--magenta);">
+      <div class="equipo-avatar" style="background: white;">+</div>
+      <div class="role" style="color:var(--magenta)">Próximamente</div>
+      <h4>Nuevos docentes</h4>
+      <p>Incorporamos especialistas continuamente. Escribinos si querés sumarte al equipo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div style="max-width:900px; margin: 0 auto;">
+    <p class="section-label">Qué dicen nuestros alumnos</p>
+    <h2 class="section-title">Resultados <em>reales</em></h2>
+    <div class="testimonios-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"El curso de EIA me permitió conseguir trabajo en una consultora ambiental al mes de recibirme. El contenido es muy aplicado a la realidad del mercado."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MF</div>
+          <div>
+            <div class="testi-name">María F.</div>
+            <div class="testi-loc">Resistencia, Chaco</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"El de SketchUp me cambió la forma de trabajar. Ahora puedo presentar proyectos en 3D y mis clientes lo valoran muchísimo."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RA</div>
+          <div>
+            <div class="testi-name">Roberto A.</div>
+            <div class="testi-loc">Sáenz Peña, Chaco</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Muy buena calidad para el precio. Los profesores responden rápido y el material es completo. Lo recomiendo a cualquier técnico del agro."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CL</div>
+          <div>
+            <div class="testi-name">Carolina L.</div>
+            <div class="testi-loc">Santiago del Estero</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="contacto-info">
+    <p class="section-label">Contacto</p>
+    <h2 class="section-title">¿Tenés alguna<br><em>pregunta</em>?</h2>
+    <p>Escribinos por cualquier consulta sobre cursos, inscripciones o contenidos. Te respondemos a la brevedad.</p>
+    <div class="contact-detail">
+      <div class="contact-icon">✉️</div>
+      <a href="mailto:infoacademiaopm@gmail.com">infoacademiaopm@gmail.com</a>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">📱</div>
+      <a href="https://wa.me/543644556551">3644 556551 (WhatsApp)</a>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon">🌐</div>
+      <span>academiaopm.ar</span>
+    </div>
+    <div style="margin-top:2rem; padding: 1.5rem; background: var(--magenta-light); border-radius: var(--radius); border-left: 4px solid var(--magenta);">
+      <p style="font-size:0.85rem; color:var(--magenta-dark); font-weight:500; line-height:1.6; margin-bottom:0.75rem;">
+        💳 Aceptamos pago por <strong>Mercado Pago</strong>: tarjeta de crédito, débito y transferencia. Recibís acceso inmediato al inscribirte.
+      </p>
+      <a href="https://infoacademiaopm-cpu.github.io/academia-opm/" target="_blank" style="font-size:0.85rem; color:var(--magenta); font-weight:600; text-decoration:none;">→ Acceder a la plataforma de cursos</a>
+    </div>
+  </div>
+  <div class="form-card">
+    <h3>Solicitar información</h3>
+    <div class="form-group">
+      <label>Nombre completo</label>
+      <input type="text" placeholder="Tu nombre">
+    </div>
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" placeholder="tu@email.com">
+    </div>
+    <div class="form-group">
+      <label>Curso de interés</label>
+      <select>
+        <option value="">Seleccioná un curso</option>
+        <option>Evaluación de impacto ambiental I</option>
+        <option>Evaluación de impacto ambiental II</option>
+        <option>Organización de Feed Lot Sustentable</option>
+        <option>Diseño 3D para la industria</option>
+        <option>Curso de Biodiesel</option>
+        <option>Salud y ambiente</option>
+        <option>Varios / Consulta general</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Mensaje (opcional)</label>
+      <textarea placeholder="¿Qué querés saber?"></textarea>
+    </div>
+    <button class="form-submit" onclick="enviarFormulario()">Enviar consulta →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">Academia <span>OPM</span></a>
+      <p>Formación profesional práctica en medio ambiente, producción agropecuaria y diseño industrial. Online, accesible y de calidad.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Cursos</h4>
+      <ul>
+        <li><a href="#cursos">Impacto ambiental I</a></li>
+        <li><a href="#cursos">Impacto ambiental II</a></li>
+        <li><a href="#cursos">Feed Lot Sustentable</a></li>
+        <li><a href="#cursos">Diseño 3D</a></li>
+        <li><a href="#cursos">Biodiesel</a></li>
+        <li><a href="#cursos">Salud y ambiente</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Academia</h4>
+      <ul>
+        <li><a href="#quienes">Quiénes somos</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="mailto:infoacademiaopm@gmail.com">infoacademiaopm@gmail.com</a></li>
+        <li><a href="https://wa.me/543644556551">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Academia OPM · academiaopm.ar</p>
+    <p>Desarrollado con 💜 en el NEA argentino</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="whatsapp-btn" href="https://wa.me/543644556551?text=Hola!%20Quiero%20información%20sobre%20los%20cursos%20de%20Academia%20OPM" target="_blank" title="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.554 4.103 1.524 5.832L0 24l6.336-1.491A11.927 11.927 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.003-1.369l-.359-.213-3.72.876.934-3.627-.234-.372A9.782 9.782 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function enviarFormulario() {
+  const nombre = document.querySelector('input[type="text"]').value.trim();
+  const email = document.querySelector('input[type="email"]').value.trim();
+  const curso = document.querySelector('select').value;
+  const mensaje = document.querySelector('textarea').value.trim();
+
+  if (!nombre || !email || !curso) {
+    alert('Por favor completá nombre, email y curso de interés.');
+    return;
+  }
+
+  const subject = encodeURIComponent('Consulta desde academiaopm.ar – ' + curso);
+  const body = encodeURIComponent(
+    'Nombre: ' + nombre + '\n' +
+    'Email: ' + email + '\n' +
+    'Curso: ' + curso + '\n' +
+    (mensaje ? 'Mensaje: ' + mensaje : '')
+  );
+  window.location.href = 'mailto:infoacademiaopm@gmail.com?subject=' + subject + '&body=' + body;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
